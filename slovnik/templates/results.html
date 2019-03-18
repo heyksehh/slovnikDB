@@ -1,0 +1,27 @@
+<html>
+    <head>
+       <meta charset="utf-8">
+       <title>База данных толкований</title>
+    </head>
+ <body>
+<p>{{n}}</p>
+<p><b>Вы искали: {% for l in lemmas %} {{l}} {% endfor %}</b></p>
+
+{% if res == 0 %}
+	<p align="center"> По данному запросу ничего не найдено. </p>
+{% else %}
+<table border="1" align="center" cellpadding="6">
+	<tr>
+		<th>Лексема</th>
+		<th>Толкование</th>
+	</tr>
+		{% for i in res %}
+			<tr><td><b>{{ i['lex'] }}</b></td>
+			<td>{{ i['def'] }}</td></tr>
+		{% endfor %}
+</table>
+<hr></hr>
+{% endif %}
+<p><a href="/main">Вернуться на главную</a></p>
+</body>
+</html>
