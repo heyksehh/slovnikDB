@@ -1,27 +1,78 @@
 <html>
     <head>
-       <meta charset="utf-8">
-       <title>База данных толкований</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <!-- Footer style -->
+        <style>
+            html {
+                position: relative;
+                min-height: 100%;
+            }
+            body {
+                /* Margin bottom by footer height */
+                margin-bottom: 60px;
+            }
+            .footer {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                /* Set the fixed height of the footer here */
+                height: 60px;
+                background-color: #f5f5f5;
+                margin-top: 10px;
+            }
+            body > .container {
+                padding: 60px 15px 0;
+            }
+            .container .text-muted {
+                margin: 20px 0;
+            }
+            .footer > .container {
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+        </style>
+        <title>База данных толкований</title>
     </head>
- <body>
-<p>{{n}}</p>
-<p><b>Вы искали: {% for l in lemmas %} {{l}} {% endfor %}</b></p>
+    <body>
+        <div class="container theme-showcase" role="main">
+                <h1>База данных толкований Активного словаря русского языка</h1>
+                <br />
 
-{% if res == 0 %}
-	<p align="center"> По данному запросу ничего не найдено. </p>
-{% else %}
-<table border="1" align="center" cellpadding="6">
-	<tr>
-		<th>Лексема</th>
-		<th>Толкование</th>
-	</tr>
-		{% for i in res %}
-			<tr><td><b>{{ i['lex'] }}</b></td>
-			<td>{{ i['def'] }}</td></tr>
-		{% endfor %}
-</table>
-<hr></hr>
-{% endif %}
-<p><a href="/main">Вернуться на главную</a></p>
-</body>
+                <h2>Результаты</h2>
+                <!-- <p>{{n}}</p> -->
+                <p><b>Вы искали:</b> {% for l in lemmas %} {{l}} {% endfor %}</p>
+
+                {% if res == 0 %}
+                <p align="center"> По данному запросу ничего не найдено. </p>
+                {% else %}
+                <table border="1" align="center" cellpadding="6">
+                    <tr>
+                        <th>Лексема</th>
+                        <th>Толкование</th>
+                    </tr>
+                    {% for i in res %}
+                    <tr>
+							  <td><b>{{ i['lex'] }}</b></td>
+							  <td>{{ i['def'] }}</td>
+							</tr>
+                    {% endfor %}
+                </table>
+            <hr></hr>
+            {% endif %}
+            <p align="center"><a href="/main">Вернуться на главную</a></p>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <p class="text-muted">Сделали: Ксюша Христосова (БКЛ153), Саша Овчинникова (БКЛ153), Даша Максимова (БКЛ151)</p>
+            </div>
+        </footer>  
+    </body>
 </html>
