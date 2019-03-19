@@ -1,20 +1,75 @@
 <html>
     <head>
        <meta charset="utf-8">
-       <title>База данных толкований</title>
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+       <!-- Latest compiled and minified CSS -->
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+       <!-- Optional theme -->
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+       <!-- Latest compiled and minified JavaScript -->
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+       <!-- Footer style -->
+       <style>
+        html {
+              position: relative;
+              min-height: 100%;
+        }
+        body {
+            /* Margin bottom by footer height */
+            margin-bottom: 60px;
+        }
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            /* Set the fixed height of the footer here */
+            height: 60px;
+            background-color: #f5f5f5;
+            margin-top: 10px;
+        }
+        body > .container {
+            padding: 60px 15px 0;
+        }
+        .container .text-muted {
+            margin: 20px 0;
+        }
+        .footer > .container {
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+        </style>
+        <title>База данных толкований</title>
     </head>
- <body>
-<h3>База данных толкований Активного словаря русского языка</h3>
-<hr></hr>
-<p><b>Поиск</b></p>
+    <body>
+        <div class="container theme-showcase" role="main">
+            <h1>База данных толкований Активного словаря русского языка</h1>
+            
+            <br />
 
-	<form action = "/results">
-	<p>Введите запрос: <input type=text name="search_form" value=""></p>
-	<p><b>Выберите параметр поиска:</b></p>
-    <p><input name="logic" type="radio" value="and"> x AND y</p>
-    <p><input name="logic" type="radio" value="or"> x OR y</p>
-    <p><input type="submit" value="Поиск"></p>
-	</form>
-	
-</body>
+            <h2>Поиск по толкованиям</h2>
+
+            <div class="well">
+                Введите в поле поиска ниже слова, которые хотите найти в толковании. Они будут приведены к леммам, по которым будет произведён поиск. Параметр <i>AND</i> или <i>OR</i> отвечает за "комбинацию" введённых слов.
+            </div>
+
+            <br />
+
+            <form action = "/results">
+                <p>Запрос: 
+                    <input type="text" name="search_form" placeholder="введите слова для поиска..." size="50">
+                </p>
+                <br />
+                <p>Параметр поиска:<br />
+                    <input name="logic" type="radio" value="and"> x AND y <br />
+                    <input name="logic" type="radio" value="or"> x OR y</p>
+                <p align="center"><input type="submit" class="btn btn-lg btn-primary"  value="Поиск"></p>
+            </form>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <p class="text-muted">Сделали: Ксюша Христосова (БКЛ153), Саша Овчинникова (БКЛ153), Даша Максимова (БКЛ151)</p>
+            </div>
+        </footer>
+    </body>
 </html>
